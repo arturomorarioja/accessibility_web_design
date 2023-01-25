@@ -9,6 +9,28 @@
  */
 
 /*
+    Functions
+*/
+const activateElement = ((article) => {
+    article.classList.remove('hidden');
+    article.classList.add('visible');
+});
+const deactivateElement = ((article) => {
+    article.classList.add('hidden');
+    article.classList.remove('active');
+});
+
+// Shows an article and marks its menu option as active
+const showArticle = (article) => {
+    document.querySelectorAll('nav a').forEach((link) => {
+        link.classList.remove('active');
+        deactivateElement(document.querySelector(`main > article#${link.getAttribute('data-target')}`));
+    });
+    document.querySelector(`nav a[data-target="${article}"]`).classList.add('active');
+    activateElement(document.querySelector(`#${article}`));
+}
+
+/*
     On page load
 */
 document.querySelectorAll('a').forEach((link) => { 
@@ -40,25 +62,3 @@ document.querySelector('#extra a').addEventListener('click', (e) => {
     output.innerText = 'Someone clicked on the second paragraph';
     activateElement(document.querySelector('#output'));
 });
-
-/*
-    Functions
-*/
-const activateElement = ((article) => {
-    article.classList.remove('hidden');
-    article.classList.add('visible');
-});
-const deactivateElement = ((article) => {
-    article.classList.add('hidden');
-    article.classList.remove('active');
-});
-
-// Shows an article and marks its menu option as active
-const showArticle = (article) => {
-    document.querySelectorAll('nav a').forEach((link) => {
-        link.classList.remove('active');
-        deactivateElement(document.querySelector(`main > article#${link.getAttribute('data-target')}`));
-    });
-    document.querySelector(`nav a[data-target="${article}"]`).classList.add('active');
-    activateElement(document.querySelector(`#${article}`));
-}
