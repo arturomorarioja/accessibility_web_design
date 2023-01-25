@@ -5,7 +5,7 @@
     --colorTextTertiary: white;
 
     --colorPrimary: #20408A;
-    --colorSecondary: #A9ABAE;
+    --colorSecondary: #47474b;
 
     --colorNeutral: black;
 
@@ -31,6 +31,7 @@ header {
 
 nav {
     background-color: var(--colorSecondary);
+    border-top: thin solid var(--colorTextSecondary)
 }
 nav li {
     display: block;
