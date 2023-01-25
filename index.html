@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Accessibility Recommendations for Visual Design</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="" data-target="keyb">Keyboard</a></li>
+            <li><a href="" data-target="labels">Labels</a></li>
+            <li><a href="" data-target="tabindex">Tabindex</a></li>
+            <li><a href="" data-target="text">Text</a></li>
+            <li><a href="" data-target="video">Video</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article id="keyb">
+            <h2>Keyboard functionality</h2>
+            <div id="content">
+                This is the first paragraph (actually a &lt;div&gt;), which is not accessible via keyboard.
+            </div>
+            <div id="extra">
+                <a href="">This is the second paragraph, which is accessible via keyboard, since this is actually a link (&lt;a&gt;).</a>
+            </div>
+            <div id="output" hidden></div>
+        </article>
+        <article id="labels">
+            <h2>Labels in form inputs</h2>
+            <form>
+                <fieldset>
+                    <legend>These inputs do not have labels, so they must be clicked precisely</legend>
+                    <div>
+                        School
+                        <input type="text">
+                    </div>
+                    <div>
+                        Address
+                        <input type="text">
+                    </div>
+                    <div>
+                        <input type="checkbox"> Public <input type="checkbox"> Continuing education
+                    </div>
+                    <div>
+                        <button>Ok</button>
+                    </div>
+                </fieldset>
+            </form>
+            <form>
+                <fieldset>
+                    <legend>These inputs have labels, so clicking on the label brings the focus to them</legend>
+                    <div>
+                        <label for="team">Team</label>        
+                        <input type="text" id="team">
+                    </div>
+                    <div>
+                        <label for="city">City</label>        
+                        <input type="text" id="city">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ownStadium"><label for="ownStadium">Own stadium</label> 
+                        <input type="checkbox" id="playsEurope"><label for="playsEurope">Plays European competition</label>
+                    </div>
+                    <div>
+                        <button tabindex="4">Ok</button>
+                    </div>
+                </fieldset>
+            </form>
+        </article>   
+        <article id="tabindex">
+            <h2>Tabindex in form inputs</h2>
+            <form id="company">
+                <fieldset>
+                    <legend>These inputs do not have tabindex values, and Flexbox is messing around with the order</legend>
+                    <div>
+                        <label for="Company Name">Company Name</label>        
+                        <input type="text" id="Company Name">
+                    </div>
+                    <div>
+                        <label for="cvr">CVR</label>        
+                        <input type="text" id="cvr">
+                    </div>
+                    <div>
+                        <label for="address">Address</label>        
+                        <input type="text" id="address">
+                    </div>
+                    <div>
+                        <button tabindex="4">Ok</button>
+                    </div>
+                </fieldset>
+            </form>
+            <form>
+                <fieldset>
+                    <legend>These inputs have correct tabindex values</legend>
+                    <div>
+                        <label for="firstName">First Name</label>        
+                        <input type="text" id="firstName" tabindex="1">
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name</label>        
+                        <input type="text" id="lastName" tabindex="2">
+                    </div>
+                    <div>
+                        <label for="phone">Phone number</label>        
+                        <input type="text" id="phone" tabindex="3">
+                    </div>
+                    <div>
+                        <button tabindex="4">Ok</button>
+                    </div>
+                </fieldset>
+            </form>
+        </article>   
+        <article id="text">
+            <h2>Text resize</h2>
+            <div id="fixed">
+                This text has a fixed width of 16 pixels. It does not adapt to the dimensions of the viewport.
+            </div>
+            <div id="flexible">
+                This text has a flexible size due to the use of the clamp() CSS function. 
+            </div>
+        </article>
+        <article id="video">
+            <h2>Video embedding</h2>
+            <section>
+                <div>
+                    <p>
+                        This video is embedded using YouTube's sharing functionality
+                    </p>
+                    <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/T9To0blu9qs" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div>
+                    <p>
+                        This is only a picture. The video will be loaded once the user clicks on the play button
+                    </p>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/T9To0blu9qs" 
+                        srcdoc="
+                            <style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style>
+                            <a href=https://www.youtube.com/embed/T9To0blu9qs?autoplay=1>
+                                <img 
+                                    src=https://img.youtube.com/vi/T9To0blu9qs/hqdefault.jpg
+                                    alt='Video: PHP Routing Library'>
+                                <span>&#x25BA;</span>
+                            </a>"
+                        title="PHP Routing Library"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                    <p>
+                        Unfortunately, autoplay is blocked in Chrome and Safari.
+                    </p>
+                    <p>
+                        Code &copy; 2021 Morten Rand-Hendricksen (LinkedIn Learning)
+                    </p>
+                </div>
+            </section>        
+        </article>
+    </main>       
+    <footer>
+        <p>&copy; 2023 Arturo Mora-Rioja</p>
+    </footer>
+</body>
+</html>
