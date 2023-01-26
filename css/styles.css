@@ -44,7 +44,7 @@ nav li {
 nav li:last-of-type {
     border-bottom: none;
 }
-@media (min-width: 445px) {
+@media (min-width: 520px) {
     nav li {    
         display: inline-block;
         margin: 0;
