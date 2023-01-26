@@ -6,6 +6,7 @@ Code samples about accessibility for web design:
 - Using labels on forms
 - Using the tabindex attribute in form inputs
 - Making text size flexible
+- Using ARIA attributes
 - Embedding video upon user demand
 
 Based on use cases from the [LinkedIn Learning](https://www.linkedin.com/learning/) courses:
