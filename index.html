@@ -18,6 +18,7 @@
             <li><a href="" data-target="labels">Labels</a></li>
             <li><a href="" data-target="tabindex">Tabindex</a></li>
             <li><a href="" data-target="text">Text</a></li>
+            <li><a href="" data-target="aria">Aria</a></li>
             <li><a href="" data-target="video">Video</a></li>
         </ul>
     </nav>
@@ -125,6 +126,57 @@
             <div id="flexible">
                 This text has a flexible size due to the use of the clamp() CSS function. 
             </div>
+        </article>
+        <article id="aria">
+            <h2>Aria labels</h2>
+            <section>
+                <p>
+                    Without an aria label, only the input text is read by a screen reader.
+                </p>
+                <button>Send</button>
+            </section>
+            <section>
+                <p>
+                    With an aria label, the text read by a screen reader can be specified.
+                </p>
+                <button aria-label="send button">Send</button>
+            </section>
+            <hr>
+            <section>
+                <p>
+                    Without an aria label, a screen reader reads each letter independently.
+                </p>
+                <div>
+                    <div>W</div>
+                    <div>I</div>
+                    <div>T</div>
+                    <div>H</div>
+                    <div>O</div>
+                    <div>U</div>
+                    <div>T</div>
+                    <div>&nbsp;</div>
+                    <div>A</div>
+                    <div>R</div>
+                    <div>I</div>
+                    <div>A</div>
+                </div>
+            </section>
+            <section aria-label="WITH ARIA">
+                <p>
+                    With an aria label and setting the aria-hidden attribute in the container, a screen reader reads only the text provided.
+                </p>
+                <div aria-hidden="true">
+                    <div>W</div>
+                    <div>I</div>
+                    <div>T</div>
+                    <div>H</div>
+                    <div>&nbsp;</div>
+                    <div>A</div>
+                    <div>R</div>
+                    <div>I</div>
+                    <div>A</div>
+                </div>
+            </section>
         </article>
         <article id="video">
             <h2>Video embedding</h2>
