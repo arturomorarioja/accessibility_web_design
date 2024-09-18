@@ -18,26 +18,31 @@
             <li><a href="" data-target="labels">Labels</a></li>
             <li><a href="" data-target="tabindex">Tabindex</a></li>
             <li><a href="" data-target="text">Text</a></li>
-            <li><a href="" data-target="aria">Aria</a></li>
+            <li><a href="" data-target="aria">ARIA</a></li>
             <li><a href="" data-target="video">Video</a></li>
         </ul>
     </nav>
     <main>
         <article id="keyb">
-            <h2>Keyboard functionality</h2>
-            <div id="content">
+            <header>
+                <h2>Keyboard functionality</h2>
+            </header>
+            <p id="content">
                 This is the first paragraph (actually a &lt;div&gt;), which is not accessible via keyboard.
-            </div>
-            <div id="extra">
+            </p>
+            <p id="extra">
                 <a href="">This is the second paragraph, which is accessible via keyboard, since this is actually a link (&lt;a&gt;).</a>
-            </div>
-            <div id="output" hidden></div>
+            </p>
+            <p id="output" hidden></p>
         </article>
         <article id="labels">
-            <h2>Labels in form inputs</h2>
+            <header>
+                <h2>Labels and focus indicators in form inputs</h2>
+            </header>
             <form>
                 <fieldset>
-                    <legend>These inputs do not have labels, so they must be clicked precisely</legend>
+                    <legend>Without labels and focus indicator</legend>
+                    <p>These inputs do not have labels, so they must be clicked precisely</p>
                     <div>
                         School
                         <input type="text">
@@ -50,13 +55,15 @@
                         <input type="checkbox"> Public <input type="checkbox"> Continuing education
                     </div>
                     <div>
-                        <button>Ok</button>
+                        <button type="submit">Send information</button>
                     </div>
                 </fieldset>
             </form>
-            <form>
+            <form id="frmLabels">
                 <fieldset>
-                    <legend>These inputs have labels, so clicking on the label brings the focus to them</legend>
+                    <legend>With labels and focus indicator</legend>
+                    <p>These inputs have labels, so clicking on the label brings the focus to them.</p>
+                    <p>They also have a focus indicator to assist users with visual impairments.</p>
                     <div>
                         <label for="team">Team</label>        
                         <input type="text" id="team">
@@ -66,17 +73,19 @@
                         <input type="text" id="city">
                     </div>
                     <div>
-                        <input type="checkbox" id="ownStadium"><label for="ownStadium">Own stadium</label> 
-                        <input type="checkbox" id="playsEurope"><label for="playsEurope">Plays European competition</label>
+                        <input type="checkbox" id="ownStadium"><label for="ownStadium" class="checkbox"> Own stadium</label> 
+                        <input type="checkbox" id="playsEurope"><label for="playsEurope" class="checkbox"> Plays European competition</label>
                     </div>
                     <div>
-                        <button tabindex="4">Ok</button>
+                        <button type="submit" tabindex="4">Send information</button>
                     </div>
                 </fieldset>
             </form>
         </article>   
         <article id="tabindex">
-            <h2>Tabindex in form inputs</h2>
+            <header>
+                <h2>Tabindex in form inputs</h2>
+            </header>
             <form id="company">
                 <fieldset>
                     <legend>These inputs do not have tabindex values, and Flexbox is messing around with the order</legend>
@@ -93,7 +102,7 @@
                         <input type="text" id="address">
                     </div>
                     <div>
-                        <button tabindex="4">Ok</button>
+                        <button type="submit" tabindex="4">Send information</button>
                     </div>
                 </fieldset>
             </form>
@@ -113,73 +122,79 @@
                         <input type="text" id="phone" tabindex="3">
                     </div>
                     <div>
-                        <button tabindex="4">Ok</button>
+                        <button type="submit" tabindex="4">Send information</button>
                     </div>
                 </fieldset>
             </form>
         </article>   
         <article id="text">
-            <h2>Text resize</h2>
-            <div id="fixed">
+            <header>
+                <h2>Text resize</h2>
+            </header>
+            <p id="fixed">
                 This text has a fixed width of 16 pixels. It does not adapt to the dimensions of the viewport.
-            </div>
-            <div id="flexible">
+            </p>
+            <p id="flexible">
                 This text has a flexible size due to the use of the clamp() CSS function. 
-            </div>
+            </p>
         </article>
         <article id="aria">
-            <h2>Aria labels</h2>
+            <header>
+                <h2>ARIA labels</h2>
+            </header>
             <section>
                 <p>
-                    Without an aria label, only the input text is read by a screen reader.
+                    Without an ARIA label, only the input text is read by a screen reader.
                 </p>
                 <button>Send</button>
             </section>
             <section>
                 <p>
-                    With an aria label, the text read by a screen reader can be specified.
+                    With an ARIA label, the text read by a screen reader can be specified.
                 </p>
                 <button aria-label="send button">Send</button>
             </section>
             <hr>
             <section>
                 <p>
-                    Without an aria label, a screen reader reads each letter independently.
+                    Without an ARIA label, a screen reader reads each letter independently.
                 </p>
                 <div>
-                    <div>W</div>
-                    <div>I</div>
-                    <div>T</div>
-                    <div>H</div>
-                    <div>O</div>
-                    <div>U</div>
-                    <div>T</div>
-                    <div>&nbsp;</div>
-                    <div>A</div>
-                    <div>R</div>
-                    <div>I</div>
-                    <div>A</div>
+                    <p>W</p>
+                    <p>I</p>
+                    <p>T</p>
+                    <p>H</p>
+                    <p>O</p>
+                    <p>U</p>
+                    <p>T</p>
+                    <p>&nbsp;</p>
+                    <p>A</p>
+                    <p>R</p>
+                    <p>I</p>
+                    <p>A</p>
                 </div>
             </section>
             <section aria-label="WITH ARIA">
                 <p>
-                    With an aria label and setting the aria-hidden attribute in the container, a screen reader reads only the text provided.
+                    With an ARIA label and setting the aria-hidden attribute in the container, a screen reader reads only the text provided.
                 </p>
                 <div aria-hidden="true">
-                    <div>W</div>
-                    <div>I</div>
-                    <div>T</div>
-                    <div>H</div>
-                    <div>&nbsp;</div>
-                    <div>A</div>
-                    <div>R</div>
-                    <div>I</div>
-                    <div>A</div>
+                    <p>W</p>
+                    <p>I</p>
+                    <p>T</p>
+                    <p>H</p>
+                    <p>&nbsp;</p>
+                    <p>A</p>
+                    <p>R</p>
+                    <p>I</p>
+                    <p>A</p>
                 </div>
             </section>
         </article>
         <article id="video">
-            <h2>Video embedding</h2>
+            <header>
+                <h2>Video embedding</h2>
+            </header>
             <section>
                 <div>
                     <p>
@@ -224,7 +239,7 @@
         </article>
     </main>       
     <footer>
-        <p>&copy; 2023 Arturo Mora-Rioja</p>
+        <p>&copy; 2023-2024 Arturo Mora-Rioja</p>
     </footer>
 </body>
 </html>

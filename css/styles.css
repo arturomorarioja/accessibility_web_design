@@ -24,7 +24,7 @@ body {
     font-family: var(--fontMain);
 }
 
-header {
+body > header {
     padding: 0.5rem 0 0.5rem 2rem;
     color: var(--colorTextSecondary);
     background-color: var(--colorPrimary);
@@ -75,12 +75,33 @@ article {
     display: none;
 }
 
+form#frmLabels {
+    input:focus {
+        outline: none;
+        border-color: var(--colorPrimary); 
+        box-shadow: 0 0 0.5rem var(--colorPrimary);
+    }
+    label:not(.checkbox) {
+        display: inline-block;
+        width: 4rem;
+    }
+}
 form fieldset {
     padding: 1rem;
+    border-radius: 0.5rem;
+    legend {
+        padding: 0 0.5rem;
+    }
+    p:last-of-type {
+        margin-bottom: 0.5rem;
+    }
 }
 button {
     margin: 0.5rem 0 0 2rem;
     padding: 0.25rem 1rem;
+    font-size: 1.1rem;
+    border: thin solid var(--colorSecondary);
+    border-radius: 0.5rem;
 }
 
 a {
@@ -100,7 +121,9 @@ hr {
     color: var(--colorNeutral);
 }
 #output {
+    margin: 0 0.5rem;
     border: thin solid var(--colorPrimary);
+    border-radius: 0.5rem;
 }
 
 #tabindex form label {
