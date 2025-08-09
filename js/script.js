@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Accessibility recommendations for Visual Design
- * @author  Arturo Mora-Rioja (amri@kea.dk)
+ * @author  Arturo Mora-Rioja
  *          Based on use cases from the LinkedIn Learning courses
  *          - Accessibility for Web Design (Derek Featherstone, 2022)
  *          - Simplifying Web Development with Accessibility Best Practices (Morten Rand-Hendriksen, 2021)
