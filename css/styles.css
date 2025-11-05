@@ -1,64 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
-
-:root {
-    --colorTextSecondary: floralwhite;
-    --colorTextTertiary: white;
-
-    --colorPrimary: #20408A;
-    --colorSecondary: #47474b;
-
-    --colorNeutral: black;
-
-    --fontMain: 'Raleway', Arial, Helvetica, sans-serif;
-    --fontArtistic: Consolas, monospace;
-
-    --iFrameWidth: 560px;
-}
+@import 'variables.css';
 
 * {
     margin: 0;
-    padding: 0;    
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: var(--fontMain);
-}
-
-body > header {
-    padding: 0.5rem 0 0.5rem 2rem;
-    color: var(--colorTextSecondary);
-    background-color: var(--colorPrimary);
+    > header {
+        padding: 0.5rem 0 0.5rem 2rem;
+        color: var(--colorTextSecondary);
+        background-color: var(--colorPrimary);
+    }
 }
 
 nav {
     background-color: var(--colorSecondary);
-    border-top: thin solid var(--colorTextSecondary)
-}
-nav li {
-    display: block;
-    margin: 0 1rem;
-    padding: 0.25rem 1rem;
-    border-bottom: thin solid var(--colorTextSecondary);
-    text-align: center;
-}
-nav li:last-of-type {
-    border-bottom: none;
-}
-@media (min-width: 520px) {
-    nav li {    
-        display: inline-block;
-        margin: 0;
-        border-bottom: none;
-        text-align: left;
+    border-top: thin solid var(--colorTextSecondary);
+    li {
+        display: block;
+        margin: 0 1rem;
+        padding: 0.25rem 1rem;
+        border-bottom: thin solid var(--colorTextSecondary);
+        text-align: center;
+        &:last-of-type {
+            border-bottom: none;
+        }
+        @media (min-width: 520px) {
+            display: inline-block;
+            margin: 0;
+            border-bottom: none;
+            text-align: left;
+        }
     }
 }
 
 main {
     padding: 0.5rem 0.5rem 1.5rem 0.5rem;
     line-height: 1.4rem;
-}
-main > article > * {
-    padding: 0.5rem;
+    > article > * {
+        padding: 0.5rem;
+    }
 }
 
 footer {
@@ -75,25 +58,27 @@ article {
     display: none;
 }
 
-form#frmLabels {
-    input:focus {
-        outline: none;
-        border-color: var(--colorPrimary); 
-        box-shadow: 0 0 0.5rem var(--colorPrimary);
+form {
+    &#frmLabels {
+        input:focus {
+            outline: none;
+            border-color: var(--colorPrimary); 
+            box-shadow: 0 0 0.5rem var(--colorPrimary);
+        }
+        label:not(.checkbox) {
+            display: inline-block;
+            width: 4rem;
+        }
     }
-    label:not(.checkbox) {
-        display: inline-block;
-        width: 4rem;
-    }
-}
-form fieldset {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    legend {
-        padding: 0 0.5rem;
-    }
-    p:last-of-type {
-        margin-bottom: 0.5rem;
+    fieldset {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        legend {
+            padding: 0 0.5rem;
+        }
+        p:last-of-type {
+            margin-bottom: 0.5rem;
+        }
     }
 }
 button {
@@ -130,52 +115,57 @@ hr {
     display: inline-block;
     width: 9rem;
 }
-form#company > fieldset {
-    display: flex;
-    flex-flow: row wrap;
-}
-form#company > fieldset div {
-    flex: 1 0 100%;
-}
-form#company div:nth-of-type(2) {
-    order: -1;
+form#company {
+
+    > fieldset {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    > fieldset div {
+        flex: 1 0 100%;
+    }
+    div:nth-of-type(2) {
+        order: -1;
+    }
 }
 
-#text div {    
-    border: thin solid var(--colorNeutral);
-    border-radius: 0.5rem;
-}
-#text #fixed {
-    font-size: 16px;
-}
-#text #flexible {
-    font-size: clamp(0.8rem, 2vw, 1.3rem);
+#text {
+    div {    
+        border: thin solid var(--colorNeutral);
+        border-radius: 0.5rem;
+    }
+    #fixed {
+        font-size: 16px;
+    }
+    #flexible {
+        font-size: clamp(0.8rem, 2vw, 1.3rem);
+    }
 }
 
-article#aria section > div {
-    display: flex;
-    flex-flow: row wrap;
-}
-article#aria section div {
-    margin: 0.5rem;
-    padding: 0.5rem;    
-    border: thin solid var(--colorNeutral);
-    border-radius: 0.5rem;
-    font-family: var(--fontArtistic);
-    font-size: 2rem;
+article#aria section {
+    > div {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    div {
+        margin: 0.5rem;
+        padding: 0.5rem;    
+        border: thin solid var(--colorNeutral);
+        border-radius: 0.5rem;
+        font-family: var(--fontArtistic);
+        font-size: 2rem;
+    }
 }
 
 article#video > section {
     display: flex;
     flex-flow: row wrap;
     gap: 1rem;
-}
-article#video > section iframe {
-    width: 100%;
-}
-@media (min-width: 600px) {
-    article#video > section iframe {
-        width: var(--iFrameWidth);
+    iframe {
+        width: 100%;
+        @media (min-width: 600px) {
+            width: var(--iFrameWidth);
+        }
     }
 }
 
@@ -186,4 +176,7 @@ article#video > section iframe {
 .active { 
     font-weight: bold;
     text-decoration: underline;
+}
+.detached {
+    margin-bottom: 1rem;
 }

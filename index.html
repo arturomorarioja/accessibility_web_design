@@ -63,7 +63,7 @@
                 <fieldset>
                     <legend>With labels and focus indicator</legend>
                     <p>These inputs have labels, so clicking on the label brings the focus to them.</p>
-                    <p>They also have a focus indicator to assist users with visual impairments.</p>
+                    <p>They also have a focus indicator to assist users with visual impairment.</p>
                     <div>
                         <label for="team">Team</label>        
                         <input type="text" id="team">
@@ -143,16 +143,27 @@
                 <h2>ARIA labels</h2>
             </header>
             <section>
+                <p class="detached">The following buttons style a text as bold. Their content is an &lt;svg&gt; tag.</p>
                 <p>
-                    Without an ARIA label, only the input text is read by a screen reader.
+                    Without an ARIA label, only the input text (a "B") is read by a screen reader.
                 </p>
-                <button>Send</button>
+                <!-- A screen reader would typically read "Button, graphic B" -->
+                <button>
+                    <svg width="20" height="20">
+                        <text x="5" y="15" font-size="14" font-weight="bold">B</text>
+                    </svg>
+                </button>
             </section>
             <section>
                 <p>
                     With an ARIA label, the text read by a screen reader can be specified.
                 </p>
-                <button aria-label="send button">Send</button>
+                <!-- A screen reader would typically read "Bold, button" -->
+                <button aria-label="Bold">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <text x="5" y="15" font-size="14" font-weight="bold">B</text>
+                    </svg>
+                </button>
             </section>
             <hr>
             <section>
@@ -239,7 +250,7 @@
         </article>
     </main>       
     <footer>
-        <p>&copy; 2023-2024 Arturo Mora-Rioja</p>
+        <p>&copy; 2023-2025 Arturo Mora-Rioja</p>
     </footer>
 </body>
 </html>
